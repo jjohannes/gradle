@@ -212,7 +212,7 @@ public class DefaultFileSystemAccess implements FileSystemAccess, FileSystemDefa
     }
 
     private static class StripedProducerGuard<T> {
-        private final Striped<Lock> locks = Striped.lock(Runtime.getRuntime().availableProcessors() * 4);
+        private final Striped<Lock> locks = Striped.lock(Runtime.getRuntime().availableProcessors() * 1000);
 
         public <V> V guardByKey(T key, Supplier<V> supplier) {
             Lock lock = locks.get(key);

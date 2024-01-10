@@ -105,7 +105,7 @@ public abstract class ProducerGuard<T> {
     }
 
     private static class StripedProducerGuard<T> extends ProducerGuard<T> {
-        private final Striped<Lock> locks = Striped.lock(Runtime.getRuntime().availableProcessors() * 4);
+        private final Striped<Lock> locks = Striped.lock(Runtime.getRuntime().availableProcessors() * 1000);
 
         @Override
         public <V> V guardByKey(T key, Supplier<V> supplier) {
