@@ -80,7 +80,7 @@ public class ExecHandleRunner implements Runnable {
         try {
             process.descendants().forEach(java.lang.ProcessHandle::destroy);
         } catch (NoSuchMethodError e) {
-            LOGGER.debug("Did not destroy the child processes. This is only supported with Java 9+.");
+            LOGGER.info("Did not destroy the child processes. This is only supported with Java 9+.");
         }
         process.destroy();
     }
